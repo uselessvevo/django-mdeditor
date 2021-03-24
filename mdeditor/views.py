@@ -67,5 +67,5 @@ class UploadView(generic.View):
         return JsonResponse({
             'success': 1,
             'message': 'UploadSuccess',
-            'url':  str(media_url.joinpath(file_full_name))
+            'url':  media_url.joinpath(file_full_name).as_posix()
         })

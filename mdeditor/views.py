@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 import uuid
+from pathlib import Path
 
 from django.views import generic
 from django.conf import settings
@@ -24,6 +25,7 @@ class UploadView(generic.View):
 
     def post(self, request, *args, **kwargs):
         upload_image = request.FILES.get('editormd-image-file', None)
+        media_url = Path(settings.MEDIA_URL, MDEDITOR_CONFIGS['image_folder'])
 
         # image none check
         if not upload_image:
@@ -46,7 +48,7 @@ class UploadView(generic.View):
             })
 
         # Check image folder
-        file_path = settings.MEDIA_ROOT / MDEDITOR_CONFIGS['image_folder']
+        file_path = Path(settings.MEDIA_ROOT, MDEDITOR_CONFIGS['image_folder'])
         if not file_path.exists():
             try:
                 file_path.makedirs()
@@ -59,13 +61,11 @@ class UploadView(generic.View):
 
         # Save image
         file_full_name = f'{uuid.uuid4()!s}.{file_extension}'
-        file_path.write_bytes((v for v in upload_image.chunks()))
-        # with open(file_path / file_full_name, 'wb+') as file:
-        #     for chunk in upload_image.chunks():
-        #         file.write(chunk)
+        file_path = file_path.joinpath(file_full_name)
+        file_path.write_bytes(*[v for v in upload_image.chunks()])
 
         return JsonResponse({
             'success': 1,
             'message': 'UploadSuccess',
-            'url': settings.MEDIA_URL / MDEDITOR_CONFIGS['image_folder'] / file_full_name
+            'url':  str(media_url.joinpath(file_full_name))
         })

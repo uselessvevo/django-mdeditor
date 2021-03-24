@@ -1,18 +1,11 @@
 # -*- coding:utf-8 -*-
-from __future__ import absolute_import
-
 from django import forms
 from django.template.loader import render_to_string
 from django.utils.encoding import force_text
 from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
+from django.forms.utils import flatatt
 
-try:
-    # Django >=1.7
-    from django.forms.utils import flatatt
-except ImportError:
-    # Django <1.7
-    from django.forms.util import flatatt
 
 from .configs import MDConfig
 
@@ -31,10 +24,9 @@ class MDEditorWidget(forms.Textarea):
         """
         renderer: django2.1 新增加的参数，此处不做应用，赋值None做兼容处理
         """
-        if value is None:
-            value = ''
-
+        value = value if value else ''
         final_attrs = self.build_attrs(self.attrs, attrs, name=name)
+
         return mark_safe(render_to_string('markdown.html', {
             'final_attrs': flatatt(final_attrs),
             'value': conditional_escape(force_text(value)),
@@ -55,10 +47,13 @@ class MDEditorWidget(forms.Textarea):
     def _get_media(self):
         return forms.Media(
             css={
-                "all": ("mdeditor/css/editormd.css",)
+                'all': (
+                    'mdeditor/css/editormd.css',
+                )
             },
             js=(
-                "mdeditor/js/jquery.min.js",
-                "mdeditor/js/editormd.min.js",
+                'mdeditor/js/jquery.min.js',
+                'mdeditor/js/editormd.min.js',
             ))
+
     media = property(_get_media)

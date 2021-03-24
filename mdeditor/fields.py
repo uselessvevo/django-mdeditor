@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 from django import forms
 from django.db import models
 
@@ -7,8 +5,12 @@ from .widgets import MDEditorWidget
 
 
 class MDTextFormField(forms.fields.CharField):
-    """ custom form field """
-    def __init__(self, config_name='default', *args, **kwargs):
+    """
+    Custom text form field
+    """
+
+    def __init__(self, config_name=None, *args, **kwargs):
+        config_name = config_name if config_name else 'default'
         kwargs.update({
             'widget': MDEditorWidget(config_name=config_name)
         })
@@ -16,7 +18,9 @@ class MDTextFormField(forms.fields.CharField):
 
 
 class MDTextField(models.TextField):
-    """ custom model field """
+    """
+    Custom text field
+    """
 
     def __init__(self, *args, **kwargs):
         self.config_name = kwargs.pop("config_name", "default")

@@ -9,5 +9,3 @@ class ExampleModel(models.Model):
     content = MDTextField()
     content2 = MDTextField(config_name='custom')
     content_test = models.TextField()
-
-

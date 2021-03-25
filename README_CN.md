@@ -55,7 +55,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'  # django 3.0 + 默认为 deny
 
 - 在 `settings` 中添加媒体文件的路径配置:
 ```python
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 ```

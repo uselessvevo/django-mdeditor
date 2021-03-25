@@ -72,7 +72,7 @@
                     alt      : "Título",
                     uploadButton     : "Cargar",
                     imageURLEmpty    : "Error: La dirección URL de la imagen no pueder estar vacia.",
-                    uploadFileEmpty  : "Error: upload pictures cannot be empty!",
+                    uploadFileEmpty  : "Error: media pictures cannot be empty!",
                     formatNotAllowed : "Error: Sólo se pueden cargar ficheros de imagen, los formatos permitidos son:"
                 },
                 preformattedText : {

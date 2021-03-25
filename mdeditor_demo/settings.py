@@ -117,7 +117,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'  # django 3.0 + 默认为 deny
@@ -141,7 +141,7 @@ MDEDITOR_CONFIGS = {
             'jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'
         ],
         'image_folder': 'editor',
-        'uploads_folder': f'/media/editor/',
+        'uploads_folder': f'/mdeditor/media/',
         'theme': 'default',  # dark / default
         'preview_theme': 'default',  # dark / default
         'editor_theme': 'default',  # pastel-on-dark / default

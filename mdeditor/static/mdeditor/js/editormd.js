@@ -298,8 +298,8 @@
                     alt      : "Title",
                     uploadButton     : "Upload",
                     imageURLEmpty    : "Error: picture url address can't be empty.",
-                    uploadFileEmpty  : "Error: upload pictures cannot be empty!",
-                    formatNotAllowed : "Error: only allows to upload pictures file, upload allowed image file format:"
+                    uploadFileEmpty  : "Error: media pictures cannot be empty!",
+                    formatNotAllowed : "Error: only allows to media pictures file, media allowed image file format:"
                 },
                 preformattedText : {
                     title             : "Preformatted text / Codes",

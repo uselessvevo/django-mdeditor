@@ -4,5 +4,5 @@ from django.conf.urls import url
 
 
 urlpatterns = [
-    url(r'^uploads/$', UploadView.as_view(), name='uploads'),
+    url(r'^media/$', UploadView.as_view(), name='media'),
 ]

@@ -73,7 +73,7 @@
                     uploadButton     : "Hochladen",
                     imageURLEmpty    : "Fehler: Bild URL Adresse darf nciht leer sein.",
                     uploadFileEmpty  : "Fehler: Bild darf nicht leer sein!",
-                    formatNotAllowed : "Fehler: nur Bilddatei upload möglich. Bitte im Format:"
+                    formatNotAllowed : "Fehler: nur Bilddatei media möglich. Bitte im Format:"
                 },
                 preformattedText : {
                     title             : "Vorformatierter Text / Codeblock ",

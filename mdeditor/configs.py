@@ -20,6 +20,7 @@ DEFAULT_CONFIG = {
         'jpg', 'jpeg', 'gif', 'png', 'webp', 'bmp',
     ],
     'image_folder': 'editor',
+    'uploads_folder': '/media/editor/',
 
     # Available themes:
     # * Dark

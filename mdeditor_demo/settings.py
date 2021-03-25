@@ -141,6 +141,7 @@ MDEDITOR_CONFIGS = {
             'jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'
         ],
         'image_folder': 'editor',
+        'uploads_folder': f'/media/editor/',
         'theme': 'default',  # dark / default
         'preview_theme': 'default',  # dark / default
         'editor_theme': 'default',  # pastel-on-dark / default
